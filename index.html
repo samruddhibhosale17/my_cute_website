@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Something For You 🌿</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            font-family: 'Quicksand', sans-serif;
+
+            background-color: #edf7ed;
+            color: #315c42;
+        }
+
+
+        /* MAIN CARD */
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+
+            text-align: center;
+
+            background-color: white;
+
+            padding: 30px;
+
+            border-radius: 28px;
+
+            box-shadow: 0 10px 35px rgba(49, 92, 66, 0.12);
+        }
+
+
+        /* TOP */
+
+        .leaf {
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+
+
+        h1 {
+            margin: 0;
+
+            font-size: 40px;
+            font-weight: 700;
+
+            color: #2f6848;
+        }
+
+
+        .intro {
+            margin-top: 10px;
+            margin-bottom: 22px;
+
+            font-size: 16px;
+            line-height: 1.6;
+
+            color: #668574;
+        }
+
+
+        /* QUESTION */
+
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 18px;
+
+            font-size: 19px;
+            font-weight: 600;
+
+            color: #3d7053;
+        }
+
+
+        /* BUTTONS */
+
+        .choices {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .choice {
+            border: none;
+
+            background-color: #e2f1e4;
+
+            color: #356b4b;
+
+            padding: 14px 8px;
+
+            border-radius: 18px;
+
+            font-family: 'Quicksand', sans-serif;
+
+            font-size: 23px;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .choice span {
+            display: block;
+
+            margin-top: 5px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        .choice:hover {
+            background-color: #cce5d1;
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 6px 15px rgba(49, 92, 66, 0.12);
+        }
+
+
+        .choice:active {
+            transform: translateY(-1px);
+        }
+
+
+        /* RESULT */
+
+        .result {
+            display: none;
+
+            margin-top: 18px;
+
+            min-height: 120px;
+
+            padding: 12px 15px;
+
+            background-color: #f0f8f1;
+
+            border-radius: 20px;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+
+        /* MESSAGE */
+
+        .message {
+            flex: 1;
+
+            text-align: left;
+
+            color: #47765a;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+        }
+
+
+        .message p {
+            margin: 0;
+        }
+
+
+        /* IMAGE */
+
+        .result img {
+            width: 105px;
+            height: 105px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+        }
+
+
+        /* FOOTER */
+
+        .footer {
+            margin-top: 18px;
+
+            font-size: 11px;
+
+            color: #91aa99;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 22px 18px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .intro {
+                font-size: 14px;
+            }
+
+            .choices {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .choice {
+                font-size: 21px;
+                padding: 12px 6px;
+            }
+
+            .result {
+                min-height: 105px;
+            }
+
+            .result img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .message {
+                font-size: 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <main class="container">
+
+
+        <!-- HEADING -->
+
+        <div class="leaf">🌿</div>
+
+        <h1>Hey, you! ♡</h1>
+
+        <p class="intro">
+            I don't know what kind of day you're having...
+            <br>
+            but maybe you need a little something. 🌱
+        </p>
+
+
+        <!-- QUESTION -->
+
+        <h2>What do you need right now?</h2>
+
+
+        <!-- BUTTONS -->
+
+        <div class="choices">
+
+            <button class="choice" onclick="showMessage('comfort')">
+                🫂
+                <span>Comfort</span>
+            </button>
+
+            <button class="choice" onclick="showMessage('motivation')">
+                🌱
+                <span>Motivation</span>
+            </button>
+
+            <button class="choice" onclick="showMessage('peace')">
+                ☁️
+                <span>Peace</span>
+            </button>
+
+            <button class="choice" onclick="showMessage('happiness')">
+                ☀️
+                <span>Happiness</span>
+            </button>
+
+            <button class="choice" onclick="showMessage('laugh')">
+                😂
+                <span>A Laugh</span>
+            </button>
+
+            <button class="choice" onclick="showMessage('love')">
+                💌
+                <span>A Little Love</span>
+            </button>
+
+        </div>
+
+
+        <!-- MESSAGE + IMAGE -->
+
+        <div id="result" class="result">
+
+            <div id="message" class="message">
+                <p></p>
+            </div>
+
+            <img src="image.jpeg" alt="Funny image">
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <p class="footer">
+            made with a little bit of love & lots of green 🌿
+        </p>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function showMessage(choice) {
+
+            const result = document.getElementById("result");
+            const message = document.getElementById("message");
+
+
+            if (choice === "comfort") {
+
+                message.innerHTML =
+                    "<p>Come here 🫂 You're doing better than you think. Take a breath.</p>";
+
+            }
+
+
+            else if (choice === "motivation") {
+
+                message.innerHTML =
+                    "<p>Get up bestie 🌱 Your future self is waiting. Stop scrolling 😭</p>";
+
+            }
+
+
+            else if (choice === "peace") {
+
+                message.innerHTML =
+                    "<p>No thoughts. Head empty. Just vibes. ☁️ Go drink some water.</p>";
+
+            }
+
+
+            else if (choice === "happiness") {
+
+                message.innerHTML =
+                    "<p>You have officially been prescribed one tiny moment of happiness ☀️</p>";
+
+            }
+
+
+            else if (choice === "laugh") {
+
+                message.innerHTML =
+                    "<p>You asked for a laugh. The image has been hired for this exact purpose 😂</p>";
+
+            }
+
+
+            else if (choice === "love") {
+
+                message.innerHTML =
+                    "<p>Sending you a suspiciously large amount of love 💌 No refunds.</p>";
+
+            }
+
+
+            /* SHOW MESSAGE + IMAGE */
+
+            result.style.display = "flex";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
